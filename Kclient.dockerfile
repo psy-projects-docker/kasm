@@ -11,7 +11,7 @@ printf "%s\n" "Install Build Deps" \
 apt-get update && \ 
 DEBIAN_FRONTEND="noninteractive" apt install -y "gnupg" "wget" && \ 
 wget "https://deb.nodesource.com/gpgkey/nodesource.gpg.key" -qO - | apt-key add - && \ 
-printf "%s\n" "deb https://deb.nodesource.com/node_18.x jammy main" >"/etc/apt/sources.list.d/nodesource.list" && \ 
+printf "%s\n" "deb https://deb.nodesource.com/node_20.x jammy main" >"/etc/apt/sources.list.d/nodesource.list" && \ 
 apt-get update && \ 
 DEBIAN_FRONTEND="noninteractive" apt-get install -y \
   "curl" \
