@@ -1,5 +1,5 @@
 FROM node:12-buster as wwwstage
-ARG KASMWEB_RELEASE="9aca68d9fe343215096ec2af5be688fc55e0a73b"
+ARG KASMWEB_RELEASE="2b7e3321ae81cff99510738c2ecee1bcd2853d9b"
 
 RUN \ 
 printf "%s\n" "Build ClientSide" \
@@ -32,7 +32,7 @@ cp "index.html" "vnc.html" && \
 mkdir "Downloads"
 
 FROM ubuntu:jammy
-ARG KASMVNC_RELEASE="1.1.0"
+ARG KASMVNC_RELEASE="v1.2.0"
 COPY --from=wwwstage "/build-out" "/www"
 
 RUN \ 
