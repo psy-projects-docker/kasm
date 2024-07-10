@@ -45,30 +45,30 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # - name: Build KasmVNC Docker image
-      #   run: |
-      #     docker build \
-      #       --progress plain \
-      #       --tag "kasmvnc" \
-      #       - <"KasmVNC.dockerfile"
-      #   shell: bash
+      - name: Build KasmVNC Docker image
+        run: |
+          docker build \
+            --progress plain \
+            --tag "kasmvnc" \
+            - <"KasmVNC.dockerfile"
+        shell: bash
 
-      # - name: Extract /build-out directory from kasmvnc image
-      #   run: |
-      #     docker create \
-      #       --name "tmp_container" \
-      #       "kasmvnc"
+      - name: Extract /build-out directory from kasmvnc image
+        run: |
+          docker create \
+            --name "tmp_container" \
+            "kasmvnc"
 
-      #     docker cp \
-      #       "tmp_container:/build-out" \
-      #       "./build-out"
+          docker cp \
+            "tmp_container:/build-out" \
+            "./build-out"
 
-      #     docker rm tmp_container
-      #   shell: bash
+          docker rm tmp_container
+        shell: bash
 
-      # - name: Create KasmVNC tar archive
-      #   run: tar -zcvf "kasmvnc.tar.gz" "./build-out"
-      #   shell: bash
+      - name: Create KasmVNC tar archive
+        run: tar -zcvf "kasmvnc.tar.gz" "./build-out"
+        shell: bash
 
       - name: Build Kclient Docker image
         run: |
