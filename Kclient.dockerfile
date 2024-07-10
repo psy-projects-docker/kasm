@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:jammy
 ARG KCLIENT_RELEASE
 
 RUN \ 
