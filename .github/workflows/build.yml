@@ -109,7 +109,7 @@ jobs:
         uses: dev-drprasad/delete-tag-and-release@v1.0.1
         with:
           delete_release: true
-          tag_name: v0.0.2
+          tag_name: v0.0.3
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifacts to Release
@@ -121,5 +121,5 @@ jobs:
           draft: false
           generateReleaseNotes: true
           makeLatest: true
-          tag: v0.0.2
+          tag: v0.0.3
           token: ${{ secrets.GITHUB_TOKEN }}
