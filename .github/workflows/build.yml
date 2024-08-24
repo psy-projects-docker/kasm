@@ -105,21 +105,14 @@ jobs:
           EOF
         shell: bash
 
-      - name: Delete current tag and release
-        uses: dev-drprasad/delete-tag-and-release@v1.0.1
-        with:
-          delete_release: true
-          tag_name: v0.0.3
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'gh release create v0.0.4'
+        run: |
+          gh release view "v0.0.4" &>/dev/null && gh release delete "v0.0.4"
 
-      - name: Upload artifacts to Release
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifacts: "*.tar.gz"
-          bodyFile: "release.md"
-          draft: false
-          generateReleaseNotes: true
-          makeLatest: true
-          tag: v0.0.3
-          token: ${{ secrets.GITHUB_TOKEN }}
+          gh release create "v0.0.4" \
+            --title "v0.0.4" \
+            --notes-file "release.md" \
+            --generate-notes \
+            *.tar.gz
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
