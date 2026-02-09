@@ -1,4 +1,4 @@
-FROM node:12-buster as wwwstage
+FROM node:20-bullseye as wwwstage
 ARG KASMWEB_RELEASE="2d99f224265d16ee8d18c60f47712b065b507729"
 
 RUN \ 
