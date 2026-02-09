@@ -1,5 +1,5 @@
 FROM node:12-buster as wwwstage
-ARG KASMWEB_RELEASE="5ba4695e6526a27b8e38ec8d55dc33b39143e68a"
+ARG KASMWEB_RELEASE="2d99f224265d16ee8d18c60f47712b065b507729"
 
 RUN \ 
 printf "%s\n" "Build ClientSide" \
@@ -32,8 +32,8 @@ cp "index.html" "vnc.html" && \
 mkdir "Downloads"
 
 FROM ubuntu:noble
-# ARG KASMVNC_RELEASE="v1.2.0"
-ARG KASMVNC_RELEASE="511e2ae542e95f5447a0a145bb54ced968e6cfec"
+# ARG KASMVNC_RELEASE="v1.4.0"
+ARG KASMVNC_RELEASE="663b6d6a0bdd4638bff981c75a522056aaaa1c2e"
 COPY --from=wwwstage "/build-out" "/www"
 
 RUN \ 
@@ -82,7 +82,7 @@ printf "%s\n" "Build KasmVNC" \
   "██████████████████████████████████████████████████" && \ 
 git clone "https://github.com/kasmtech/KasmVNC.git" "src" && \ 
 cd "/src" && \ 
-git checkout -f ${KASMVNC_release} && \ 
+git checkout -f ${KASMVNC_RELEASE} && \ 
 sed -i -e '/find_package(FLTK/s@^@#@' -e '/add_subdirectory(tests/s@^@#@' "CMakeLists.txt" && \ 
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_VIEWER:BOOL=OFF -DENABLE_GNUTLS:BOOL=OFF . && \ 
 make -j4
