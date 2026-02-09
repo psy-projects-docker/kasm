@@ -1,4 +1,4 @@
-FROM node:20-bullseye as wwwstage
+FROM node:20-bullseye AS wwwstage
 ARG KASMWEB_RELEASE="2d99f224265d16ee8d18c60f47712b065b507729"
 
 RUN \ 
@@ -50,11 +50,12 @@ DEBIAN_FRONTEND="noninteractive" apt install -y \
   "tar" "wget" "curl" "git" "grep" \
   "autoconf" "automake" "cmake" \
   "libavcodec-dev" "libdrm-dev" "libepoxy-dev" "libgbm-dev" \
-  "libgif-dev" "libgnutls28-dev" "libgnutls28-dev" "libjpeg-dev" \
+  "libgif-dev" "libgnutls28-dev" "libjpeg-dev" \
   "libjpeg-turbo8-dev" "libpciaccess-dev" "libpng-dev" "libssl-dev" \
   "libtiff-dev" "libtool" "libwebp-dev" "libx11-dev" "libxau-dev" \
-  "libxcursor-dev" "libxcursor-dev" "libxcvt-dev" "libxdmcp-dev" \
-  "libxext-dev" "libxkbfile-dev" "libxrandr-dev" "libxrandr-dev" \
+  "libxcursor-dev" "libxcvt-dev" "libxdmcp-dev" \
+  "libxext-dev" "libxkbfile-dev" "libxrandr-dev" \
+  "libavformat-dev" "libswscale-dev" "pkg-config" "libcpuid-dev" "libtbb-dev" \
   "libxshmfence-dev" "libxtst-dev" "meson" "nettle-dev" "tightvncserver" \
   "wayland-protocols" "xinit" "xserver-xorg-dev"
 

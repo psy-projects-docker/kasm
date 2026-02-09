@@ -8,8 +8,8 @@ printf "%s\n" "Install Build Deps" \
   "▒▒             Install Build Deps               ▒▒" \
   "▒▒                                              ▒▒" \
   "██████████████████████████████████████████████████" && \ 
-apt-get update && \ 
-DEBIAN_FRONTEND="noninteractive" apt-get install -y \
+apt update && \ 
+DEBIAN_FRONTEND="noninteractive" apt install -y \
   "wget" \
   "curl" \
   "g++" \
@@ -18,7 +18,7 @@ DEBIAN_FRONTEND="noninteractive" apt-get install -y \
   "libpulse-dev" \
   "make" \
   "nodejs" \
-  "npm" 
+  "npm"
 
 RUN \ 
 printf "%s\n" "Grab Source" \
